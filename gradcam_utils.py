@@ -8,7 +8,7 @@ from PIL import Image
 
 class_names = ['COVID-19', 'Fibrosis', 'Normal', 'Pneumonia', 'Tuberculosis']
 
-def load_model(weights_path="model/mobilenet_lung_disease.pth"):
+def load_model(weights_path="Model/mobilenet_lung_disease.pth"):
     model = mobilenet_v2(pretrained=False)
     model.classifier[1] = torch.nn.Linear(model.classifier[1].in_features, 5)
     model.load_state_dict(torch.load(weights_path, map_location=torch.device("cpu")))
