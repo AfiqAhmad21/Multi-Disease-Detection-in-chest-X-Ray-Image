@@ -3,7 +3,7 @@ from PIL import Image
 from gradcam_utils import load_model, predict_with_gradcam
 
 st.set_page_config(page_title="Lung Disease Classifier", layout="centered")
-st.title("🫁 Lung Disease Classification with Grad-CAM")
+st.title("🫁 Multi Lung Disease Classification")
 st.markdown("Upload a chest X-ray image to classify and visualize disease regions.")
 
 uploaded_file = st.file_uploader("Upload an X-ray Image", type=["jpg", "jpeg", "png"])
