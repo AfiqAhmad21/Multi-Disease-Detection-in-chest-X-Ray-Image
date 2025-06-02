@@ -6,11 +6,11 @@ from torchvision.models import mobilenet_v2
 import torchvision.transforms.functional as F
 from PIL import Image
 
-class_names = ['COVID-19', 'Fibrosis', 'Normal', 'Pneumonia', 'Tuberculosis']
+class_names = ['COVID-19', 'Normal', 'Pneumonia', 'Tuberculosis']
 
-def load_model(weights_path="Model/mobilenet_lung_disease.pth"):
+def load_model(weights_path="Model/mobilenet_lung_disease_noF.pth"):
     model = mobilenet_v2(pretrained=False)
-    model.classifier[1] = torch.nn.Linear(model.classifier[1].in_features, 5)
+    model.classifier[1] = torch.nn.Linear(model.classifier[1].in_features, 4)
     model.load_state_dict(torch.load(weights_path, map_location=torch.device("cpu")))
     model.eval()
     return model
